@@ -29,14 +29,14 @@ public class Ui {
         System.out.println("**********************************************");
         System.out.println("*        Please use following commands       *");
         System.out.println("**********************************************");
-        System.out.println("* 1. todo itemName                           *");
-        System.out.println("* 2. event eventName /by Date                *");
-        System.out.println("* 3. deadline eventName /from Date /to Date  *");
-        System.out.println("* 4. mark/unmark itemNumber                  *");
+        System.out.println("* 1. todo TaskName                           *");
+        System.out.println("* 2. event TaskName /from Date /to Date      *");
+        System.out.println("* 3. deadline TaskName /by Date              *");
+        System.out.println("* 4. mark/unmark TaskNumber                  *");
         System.out.println("* 5. list                                    *");
-        System.out.println("* 6. delete itemID                           *");
-        System.out.println("* 7. find keyword                            *");
-        System.out.println("* 8. date dateTime                           *");
+        System.out.println("* 6. delete TaskNumber                       *");
+        System.out.println("* 7. find Keyword                            *");
+        System.out.println("* 8. date DateTime                           *");
         System.out.println("* 9. quit/bye             (To exit program)  *");
         System.out.println("*                                            *");
         System.out.println("**********************************************");
@@ -49,7 +49,7 @@ public class Ui {
     public static void listMenu(ArrayList<Task> todoList){
         if(todoList.isEmpty()){
             System.out.println("////////////////////////////////////////////");
-            System.out.println("//     You have nothing need to be done   //");
+            System.out.println("//    You have nothing needs to be done   //");
             System.out.println("////////////////////////////////////////////");
         }else{
             System.out.println("////////////////////////////////////////////");

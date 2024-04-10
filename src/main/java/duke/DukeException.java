@@ -10,6 +10,7 @@ public class DukeException extends Exception {
      * @param value: input the value to check if it is integer
      */
     public static boolean isInteger(String value){
+        assert value != null;
         try{
             Integer.parseInt(value);
             return true;

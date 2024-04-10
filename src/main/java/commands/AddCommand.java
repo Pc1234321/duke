@@ -22,7 +22,8 @@ public class AddCommand extends Command {
     }
 
     /***
-     * function to set if this command will end the program
+     * Function to set if this command will end the program
+     * @return return false since this command is not exit command
      */
     public boolean Exit(){return false;}
 }
