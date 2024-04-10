@@ -1,22 +1,26 @@
 package storage;
+
 import task.Deadline;
 import task.Event;
 import task.Task;
 import task.Todo;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.logging.*;
 
-public class Storage{
+public class Storage {
     protected String filePath;
 
     private static final ArrayList<Task> readDataList = new ArrayList<>();
     private static final Logger logger = Logger.getLogger(Storage.class.getName());
+
     public Storage(String filePath) {
         this.filePath = filePath;
     }
+
     //Bug log
     private static void configureLogger() {
         try {
@@ -84,27 +88,27 @@ public class Storage{
                 String from = "";
                 String[] txtList = line.split("\\|");
                 //Analysis txt file data
-                for(String item : txtList){
-                    if(item.equalsIgnoreCase("T") ||
-                            item.equalsIgnoreCase("E")||
-                            item.equalsIgnoreCase("D")){
+                for (String item : txtList) {
+                    if (item.equalsIgnoreCase("T") ||
+                            item.equalsIgnoreCase("E") ||
+                            item.equalsIgnoreCase("D")) {
                         type = item;
-                    }else if(item.equalsIgnoreCase("true")){
+                    } else if (item.equalsIgnoreCase("true")) {
                         status = true;
-                    }else if(item.equalsIgnoreCase("false")){
+                    } else if (item.equalsIgnoreCase("false")) {
                         status = false;
-                    }else{
+                    } else {
                         String[] itemList = item.split(" ");
-                        if(itemList[0].equalsIgnoreCase("Name:")){
+                        if (itemList[0].equalsIgnoreCase("Name:")) {
                             taskName = combineArray(itemList);
-                        }else if (itemList[0].equalsIgnoreCase("from:")){
+                        } else if (itemList[0].equalsIgnoreCase("from:")) {
                             from = combineArray(itemList);
-                        }else if (itemList[0].equalsIgnoreCase("by:")){
+                        } else if (itemList[0].equalsIgnoreCase("by:")) {
                             by = combineArray(itemList);
                         }
                     }
                 }
-                if(type.isEmpty()){
+                if (type.isEmpty()) {
                     throw new IOException("Failed to read one or more lines of data. Reason: Bad format\n" +
                             "Warning: System will ignore the bad format data, beware of data loss!");
                 }
@@ -129,27 +133,27 @@ public class Storage{
      */
     public static void addData(String type, String taskName, String from, String by, boolean status) throws IOException {
         assert taskName != null;
-        if(type.equalsIgnoreCase("T")){
-            if(taskName.isEmpty()){
+        if (type.equalsIgnoreCase("T")) {
+            if (taskName.isEmpty()) {
                 throw new IOException("Failed to read one or more lines of data. Reason: Bad format\n" +
                         "Warning: System will ignore the bad format data, beware of data loss!");
             }
             Todo task = new Todo(taskName);
             task.setStatus(status);
             readDataList.add(task);
-        }else if(type.equalsIgnoreCase("E")){
+        } else if (type.equalsIgnoreCase("E")) {
             assert by != null;
             assert from != null;
-            if(taskName.isEmpty() || by.isEmpty() || from.isEmpty()){
+            if (taskName.isEmpty() || by.isEmpty() || from.isEmpty()) {
                 throw new IOException("Failed to read one or more lines of data. Reason: Bad format\n" +
                         "Warning: System will ignore the bad format data, beware of data loss!");
             }
             Event task = new Event(taskName, from, by);
             task.setStatus(status);
             readDataList.add(task);
-        }else if(type.equalsIgnoreCase("D")){
+        } else if (type.equalsIgnoreCase("D")) {
             assert by != null;
-            if(taskName.isEmpty() || by.isEmpty()){
+            if (taskName.isEmpty() || by.isEmpty()) {
                 throw new IOException("Failed to read one line of data. Reason: Bad format\n" +
                         "System will ignore the bad format data.");
             }
@@ -159,6 +163,7 @@ public class Storage{
         }
 
     }
+
     /***
      * Helper function to combine array into a single string
      * @param array: the array needs to combine from index 1

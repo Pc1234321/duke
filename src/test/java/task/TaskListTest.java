@@ -1,11 +1,15 @@
 package task;
+
 import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
 public class TaskListTest {
     private final ArrayList<Task> taskList = new ArrayList<>();
+
     /***
      * Test function to test if the insert function is working
      */
@@ -16,6 +20,7 @@ public class TaskListTest {
         assertEquals(1, taskList.size());
         assertEquals(task, taskList.get(0));
     }
+
     /***
      * Test function to test if the delete function is working
      */

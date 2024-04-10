@@ -1,4 +1,5 @@
 package duke;
+
 import storage.Storage;
 import task.*;
 import ui.Ui;
@@ -34,6 +35,7 @@ public class Duke {
             isExit = c.Exit();
         }
     }
+
     public static void main(String[] args) {
         new Duke("./data/task.txt").run();
     }

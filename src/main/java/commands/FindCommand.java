@@ -19,8 +19,10 @@ public class FindCommand extends Command {
      * @param storage： make use of the storage
      */
     @Override
-    public void execute(TaskList taskList, Ui ui, Storage storage) { taskList.findTask(keyWord);
+    public void execute(TaskList taskList, Ui ui, Storage storage) {
+        taskList.findTask(keyWord);
     }
+
     /***
      * function to set if this command will end the program
      */

@@ -1,5 +1,7 @@
 package duke;
+
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -11,6 +13,7 @@ public class DukeExceptionTest extends Exception {
     public void testIsIntegerWithValidInteger() {
         assertTrue(DukeException.isInteger("1"));
     }
+
     /***
      * Test function to test isInteger is working when input is a letter
      */
@@ -18,6 +21,7 @@ public class DukeExceptionTest extends Exception {
     public void testIsIntegerWithInvalidInteger() {
         assertFalse(DukeException.isInteger("A"));
     }
+
     /***
      * Test function to test isInteger is working when input is empty
      */
@@ -25,6 +29,7 @@ public class DukeExceptionTest extends Exception {
     public void testIsIntegerWithEmptyString() {
         assertFalse(DukeException.isInteger(""));
     }
+
     /***
      * Test function to test isInteger is working when input is number with leading space
      */
@@ -32,6 +37,7 @@ public class DukeExceptionTest extends Exception {
     public void testIsIntegerWithLeadingWhitespace() {
         assertFalse(DukeException.isInteger(" 1"));
     }
+
     /***
      * Test function to test isInteger is working when input is number with trailing space
      */
@@ -39,6 +45,7 @@ public class DukeExceptionTest extends Exception {
     public void testIsIntegerWithTrailingWhitespace() {
         assertFalse(DukeException.isInteger("1 "));
     }
+
     /***
      * Test function to test isInteger is working when input is a space
      */
@@ -46,6 +53,7 @@ public class DukeExceptionTest extends Exception {
     public void testIsIntegerWithWhitespaceOnly() {
         assertFalse(DukeException.isInteger(" "));
     }
+
     /***
      * Test function to test isInteger is working when input is special characters
      */

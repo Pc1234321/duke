@@ -1,16 +1,21 @@
 package ui;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import task.Task;
 
 public class Ui {
     private static Scanner userInput;
-    public Ui(){userInput = new Scanner(System.in);}
+
+    public Ui() {
+        userInput = new Scanner(System.in);
+    }
 
     /***
      * Welcome Page everytime when program startup
      */
-    public void welcomeMenu(){
+    public void welcomeMenu() {
         Scanner in = new Scanner(System.in);
         String logo = "         ____        _        \n"
                 + "        |  _ \\ _   _| | _____ \n"
@@ -25,7 +30,7 @@ public class Ui {
     /***
      * Help manu when user key in a wrong command
      */
-    public void helpMenu(){
+    public void helpMenu() {
         System.out.println("**********************************************");
         System.out.println("*        Please use following commands       *");
         System.out.println("**********************************************");
@@ -44,14 +49,15 @@ public class Ui {
 
     /**
      * Print out the item in the task list (for list function)
+     *
      * @param todoList the task list to print out
      */
-    public static void listMenu(ArrayList<Task> todoList){
-        if(todoList.isEmpty()){
+    public static void listMenu(ArrayList<Task> todoList) {
+        if (todoList.isEmpty()) {
             System.out.println("////////////////////////////////////////////");
             System.out.println("//    You have nothing needs to be done   //");
             System.out.println("////////////////////////////////////////////");
-        }else{
+        } else {
             System.out.println("////////////////////////////////////////////");
             System.out.println("//  Here are the things need to follow up //");
             System.out.println("////////////////////////////////////////////");
@@ -61,54 +67,61 @@ public class Ui {
         }
 
     }
+
     /***
      * Function to print tasks from taskList
      * @param todoList Task list
      */
-    public static void printTask(ArrayList<Task> todoList){
-        for(int i = 0; i < todoList.size(); i++){
+    public static void printTask(ArrayList<Task> todoList) {
+        for (int i = 0; i < todoList.size(); i++) {
             String status = todoList.get(i).getStatusIcon();
             Character type = todoList.get(i).getTaskType();
             String from = todoList.get(i).getFrom();
             String by = todoList.get(i).getBy();
-            if(type.equals('T')){
-                System.out.println((i+1)+"." +"["+ type +"]"+ "["+ status +"]" +" "+ todoList.get(i).getTaskName());
-            }else if(type.equals('E')){
-                System.out.println((i+1)+"." + "["+ type +"]"+ "["+ status +"]" +" "+ todoList.get(i).getTaskName() +
+            if (type.equals('T')) {
+                System.out.println((i + 1) + "." + "[" + type + "]" + "[" + status + "]" + " " + todoList.get(i).getTaskName());
+            } else if (type.equals('E')) {
+                System.out.println((i + 1) + "." + "[" + type + "]" + "[" + status + "]" + " " + todoList.get(i).getTaskName() +
                         " (From: " + from + " To: " + by + ")");
-            }else if(type.equals('D')){
-                System.out.println((i+1)+"." + "["+ type +"]"+ "["+ status +"]" +" "+ todoList.get(i).getTaskName() +
+            } else if (type.equals('D')) {
+                System.out.println((i + 1) + "." + "[" + type + "]" + "[" + status + "]" + " " + todoList.get(i).getTaskName() +
                         " (By: " + by + ")");
             }
         }
 
     }
-    public static void nothingToDelete(){
+
+    public static void nothingToDelete() {
         System.out.println("////////////////////////////////////////////");
         System.out.println("//       You have nothing to delete       //");
         System.out.println("////////////////////////////////////////////");
     }
-    public static void nothingToMark(){
+
+    public static void nothingToMark() {
         System.out.println("////////////////////////////////////////////");
         System.out.println("//        You have nothing to mark        //");
         System.out.println("////////////////////////////////////////////");
     }
-    public static void nothingToSearch(){
+
+    public static void nothingToSearch() {
         System.out.println("////////////////////////////////////////////");
         System.out.println("//       You have nothing to search       //");
         System.out.println("////////////////////////////////////////////");
     }
-    public static void nothingInPeriod(){
+
+    public static void nothingInPeriod() {
         System.out.println("////////////////////////////////////////////");
         System.out.println("//     No task in the mentioned period    //");
         System.out.println("////////////////////////////////////////////");
     }
-    public static void nothingInKeyword(){
+
+    public static void nothingInKeyword() {
         System.out.println("////////////////////////////////////////////");
         System.out.println("//       No task contain your keyword     //");
         System.out.println("////////////////////////////////////////////");
     }
-    public static void printKeywordList(ArrayList<Task> findList){
+
+    public static void printKeywordList(ArrayList<Task> findList) {
         System.out.println("////////////////////////////////////////////");
         System.out.println("//   Here are tasks contain your keyword  //");
         System.out.println("////////////////////////////////////////////");
@@ -116,7 +129,8 @@ public class Ui {
         System.out.println("                                            ");
         System.out.println("============================================");
     }
-    public static void printPeriodList(ArrayList<Task> findList){
+
+    public static void printPeriodList(ArrayList<Task> findList) {
         System.out.println("////////////////////////////////////////////");
         System.out.println("//  The tasks within the mentioned period //");
         System.out.println("////////////////////////////////////////////");
@@ -128,14 +142,16 @@ public class Ui {
     /***
      * Greeting when user exit the program
      */
-    public void exitProgram(){
+    public void exitProgram() {
         System.out.println("Bye! See you next time!");
     }
 
     /***
      * Return the string read from user
      */
-    public String readCommand(){return userInput.nextLine();}
+    public String readCommand() {
+        return userInput.nextLine();
+    }
 
 }
 

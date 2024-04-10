@@ -1,7 +1,8 @@
 package task;
 
-public class Deadline extends Task{
+public class Deadline extends Task {
     protected String by;
+
     public Deadline(String description, String by) {
         super(description);
         this.by = by;
@@ -22,9 +23,12 @@ public class Deadline extends Task{
     public String toString() {
         return super.toString() + " (by: " + by + " )";
     }
+
     /***
      * Override function to format the task data into correct format when store into local storage
      */
     @Override
-    public String format(){return super.format() + "|by: " + by;}
+    public String format() {
+        return super.format() + "|by: " + by;
+    }
 }

@@ -9,12 +9,12 @@ public class DukeException extends Exception {
      * Function to check if a string is an integer
      * @param value: input the value to check if it is integer
      */
-    public static boolean isInteger(String value){
+    public static boolean isInteger(String value) {
         assert value != null;
-        try{
+        try {
             Integer.parseInt(value);
             return true;
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             return false;
         }
     }

@@ -1,4 +1,5 @@
 package commands;
+
 import storage.Storage;
 import task.TaskList;
 import ui.Ui;
@@ -10,6 +11,7 @@ public class MarkCommand extends Command {
         super(commandType);
         this.index = index;
     }
+
     /***
      * Function to execute the command
      * @param taskList: the task list
@@ -17,11 +19,14 @@ public class MarkCommand extends Command {
      * @param storage： make use of the storage
      */
     @Override
-    public void execute(TaskList taskList, Ui ui, Storage storage){
+    public void execute(TaskList taskList, Ui ui, Storage storage) {
         taskList.updateStatus(getCommandType(), index);
     }
+
     /***
      * function to set if this command will end the program
      */
-    public boolean Exit(){return false;}
+    public boolean Exit() {
+        return false;
+    }
 }

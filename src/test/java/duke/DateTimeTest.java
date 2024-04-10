@@ -1,9 +1,11 @@
 package duke;
+
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DateTimeTest {
@@ -12,7 +14,9 @@ public class DateTimeTest {
     //Display format for user to view
     private static final DateTimeFormatter displayDateTimeFormat = DateTimeFormatter.ofPattern("MMM dd yyyy HHmm");
     private static final DateTimeFormatter displayDateFormat = DateTimeFormatter.ofPattern("MMM dd yyyy");
-    public DateTimeTest(){}
+
+    public DateTimeTest() {
+    }
 
     /***
      * Function to check if user input is a correct date-time format
@@ -32,6 +36,7 @@ public class DateTimeTest {
             }
         }
     }
+
     /***
      * Test date valid function
      */

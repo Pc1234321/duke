@@ -1,4 +1,5 @@
 package duke;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -11,7 +12,8 @@ public class DateTime {
     private static final DateTimeFormatter displayDateFormat = DateTimeFormatter.ofPattern("MMM dd yyyy");
 
 
-    public DateTime(){}
+    public DateTime() {
+    }
 
     /***
      * Function to check if user input is a correct date-time format
@@ -31,6 +33,7 @@ public class DateTime {
             }
         }
     }
+
     /***
      * Function to convert the correct format date time to a string
      * @param datetime: input date time
@@ -79,11 +82,12 @@ public class DateTime {
      * @param startingDate date time for from date
      * @param targetDate date time for by date
      */
-    public static boolean isEventValid(String startingDate,String targetDate) throws DukeException {
+    public static boolean isEventValid(String startingDate, String targetDate) throws DukeException {
         LocalDateTime startingDateTime = checkDate(startingDate.trim());
         LocalDateTime targetDateTime = checkDate(targetDate.trim());
         return !targetDateTime.isAfter(startingDateTime);
     }
+
     /***
      * Function to check if a date is within the given period
      * @param targetDate a date from user input

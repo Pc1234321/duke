@@ -1,10 +1,12 @@
 package commands;
+
 import task.*;
 import ui.Ui;
 import storage.Storage;
 
 public class AddCommand extends Command {
     private final Task task;
+
     public AddCommand(String commandType, Task task) {
         super(commandType);
         this.task = task;
@@ -25,5 +27,7 @@ public class AddCommand extends Command {
      * Function to set if this command will end the program
      * @return return false since this command is not exit command
      */
-    public boolean Exit(){return false;}
+    public boolean Exit() {
+        return false;
+    }
 }

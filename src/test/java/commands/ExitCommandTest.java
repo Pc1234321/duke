@@ -21,10 +21,13 @@ public class ExitCommandTest extends Command {
         ui.exitProgram();
         storage.writeToFile(taskList.getList());
     }
+
     /***
      * function to set if this command will end the program
      */
     @Override
-    public boolean Exit(){return true;}
+    public boolean Exit() {
+        return true;
+    }
 
 }

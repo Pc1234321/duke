@@ -3,6 +3,7 @@ package commands;
 import storage.Storage;
 import task.TaskList;
 import ui.Ui;
+
 import java.time.LocalDateTime;
 
 public class DateCommand extends Command {
@@ -20,8 +21,10 @@ public class DateCommand extends Command {
      * @param storage： make use of the storage
      */
     @Override
-    public void execute(TaskList taskList, Ui ui, Storage storage) { taskList.findDate(inputDate);
+    public void execute(TaskList taskList, Ui ui, Storage storage) {
+        taskList.findDate(inputDate);
     }
+
     /***
      * function to set if this command will end the program
      */

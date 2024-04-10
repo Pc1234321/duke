@@ -1,8 +1,10 @@
 package commands;
+
 import org.junit.jupiter.api.Test;
 import storage.Storage;
 import task.TaskList;
 import ui.Ui;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CommandTest {
