@@ -7,6 +7,7 @@ import task.Todo;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.logging.*;
@@ -73,7 +74,7 @@ public class Storage {
      */
     public ArrayList<Task> readFromFile() {
 
-        java.nio.file.Path path = Paths.get(filePath);
+        Path path = Paths.get(filePath);
         // Check if the file exists before attempting to read
         if (!Files.exists(path) || !Files.isRegularFile(path)) {
             return readDataList;
@@ -108,13 +109,11 @@ public class Storage {
                         }
                     }
                 }
-                if (type.isEmpty()) {
-                    throw new IOException("Failed to read one or more lines of data. Reason: Bad format\n" +
-                            "Warning: System will ignore the bad format data, beware of data loss!");
+                if (type.isEmpty() || taskName == null || taskName.isEmpty()) {
+                    continue;
                 }
                 //Install data
                 addData(type, taskName, from, by, status);
-
             }
         } catch (IOException e) {
             configureLogger();

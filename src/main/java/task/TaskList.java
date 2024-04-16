@@ -86,14 +86,14 @@ public class TaskList {
                 String[] keywordWords = keyword.split(" ");
                 //Will search phrase instead of only 1 keyword
                 for (int i = 0; i <= wordList.length - keywordWords.length; i++) {
-                    boolean checkFlag = true;
+                    boolean isEnd = true;
                     for (int j = 0; j < keywordWords.length; j++) {
                         if (!wordList[i + j].equalsIgnoreCase(keywordWords[j])) {
-                            checkFlag = false;
+                            isEnd = false;
                             break;
                         }
                     }
-                    if (checkFlag) {
+                    if (isEnd) {
                         findList.add(task);
                     }
                 }
